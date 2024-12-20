@@ -1,0 +1,116 @@
+ &time_control
+ run_days                            = 3,
+ run_hours                           = 12,
+ run_minutes                         = 0,
+ run_seconds                         = 0,
+ start_year                          = 2007,2007,2007
+ start_month                         = 03,03,03
+ start_day                           = 21,21,21
+ start_hour                          = 0,0,0
+ start_minute                        = 00,00,00
+ start_second                        = 00,00,00
+ end_year                            = 2007,2007,2007
+ end_month                           = 03,03,03
+ end_day                             = 24,24,24
+ end_hour                            = 12,12,12
+ end_minute                          = 00,0,0
+ end_second                          = 00,0,0
+ history_interval                    = 60,60,60
+ frames_per_outfile                  = 6,6,6
+ restart                             = .false.,
+ write_hist_at_0h_rst                = .false. 
+ restart_interval                    = 360,
+ io_form_history                     = 2
+ io_form_restart                     = 2
+ io_form_input                       = 2
+ io_form_boundary                    = 2
+ /
+
+ &domains
+ vortex_rmax                          = 120000.
+ vortex_vmax                          = 7.
+ vortex_zdd                           = 9500.
+ vortex_rzero                         = 900000.
+ vortex_sst                           = 28.
+ time_step                           = 90,
+ time_step_fract_num                 = 0,
+ time_step_fract_den                 = 1,
+ max_dom                             = 3,
+ s_we                                = 1,1,1
+ e_we                                = 301,181,301
+ s_sn                                = 1,1,1
+ e_sn                                = 301,181,301
+ s_vert                              = 1,1,1
+ e_vert                              = 35,35,35
+ dx                                  = 18000,6000,2000
+ dy                                  = 18000,6000,2000
+ ztop                                = 25000.,25000.,25000.
+ grid_id                             = 1,2,3
+ parent_id                           = 0,1,2
+ i_parent_start                      = 0,121,41
+ j_parent_start                      = 0,121,41
+ parent_grid_ratio                   = 1,3,3
+ parent_time_step_ratio              = 1,3,3
+  feedback                            = 1,
+ smooth_option                       = 0
+  eta_levels                          = 1.000, 0.993, 0.983, 0.970, 0.954,
+                                       0.934, 0.909, 0.880, 0.845, 0.807,
+                                       0.765, 0.719, 0.672, 0.622, 0.571,
+                                       0.520, 0.468, 0.420, 0.376, 0.335,
+                                       0.298, 0.263, 0.231, 0.202, 0.175,
+                                       0.150, 0.127, 0.106, 0.088, 0.070,
+                                       0.055, 0.040, 0.026, 0.013, 0.000
+ /
+
+ &physics
+  mp_physics                          = 8,8,8
+ ra_lw_physics                       = 4,4,4
+ ra_sw_physics                       = 4,4,4
+ radt                                = 5,5,5
+ sf_sfclay_physics                   = 1,1,1
+ sf_surface_physics                  = 2,2,2
+ bl_pbl_physics                      = 1,1,1
+ bldt                                = 0,0,0
+ cu_physics                          = 0,0,0
+ cudt                                = 5
+ isftcflx                            = 1
+ /
+
+ &fdda
+ /
+
+ &dynamics
+ hybrid_opt                          = 0, 
+ rk_ord                              = 3,
+ diff_opt                            = 2, 
+ km_opt                              = 4,  
+ damp_opt                            = 3, 
+ dampcoef                            = .2, .2,    .2,
+ zdamp                               = 5000., 5000.,    5000.
+ khdif                               = 300, 300, 300,
+ kvdif                               = 1,1,1
+ smdiv                               = 0.1,0.1,0.1
+ emdiv                               = 0.01,0.01,0.01
+ epssm                               = 0.1,0.1,0.1
+ time_step_sound                     = 6,6,6
+ h_mom_adv_order                     = 5,5,5
+ v_mom_adv_order                     = 3,3,3
+ h_sca_adv_order                     = 5,5,5
+ v_sca_adv_order                     = 3,3,3
+ mix_full_fields                     = .true.,.true.,.true.
+ non_hydrostatic                     = .true.,.true.,.true.
+ /
+
+ &bdy_control
+ periodic_x                          = .true.,.false.,.false.
+ periodic_y                          = .true.,.false.,.false.
+ nested                              = .false.,.true.,.true.
+ /
+
+ &grib2
+ /
+
+ &namelist_quilt
+ nio_tasks_per_group = 0,
+ nio_groups = 1,
+ /
